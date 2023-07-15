@@ -5,8 +5,8 @@ str="Continuing from where we left off, this is the next part of the text:"
 cheracters_limit=3000
 cheracters_limit=$(($cheracters_limit - ${#str}))
 
-# Exchange new line signs to space in content.txt
-tr '\n' ' ' < content.txt > temp && mv temp content.txt
+# Trim file
+cat content.txt | tr -s '[:space:]' ' ' > content.txt
 
 # Split content.txt file on smaler files with maximum characters limit
 file_content=$(cat content.txt)
